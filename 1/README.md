@@ -9,5 +9,8 @@ https://vice-emu.sourceforge.io/
 
 Copy paste first the code than the input in two chunks (there is a paste limit in the vice emulator)
 
+
 ![aoc_2023_day1_a.png](aoc_2023_day1_a.png)
+
+![aoc_2023_day1_b.png](aoc_2023_day1_b.png)
 
