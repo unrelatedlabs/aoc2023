@@ -1,5 +1,3 @@
-
-
 @value
 struct Mapping(CollectionElement):
     var src: Int 
@@ -17,7 +15,6 @@ struct Mapping(CollectionElement):
             return True
         
         return False
-
 
 
 @value
@@ -51,6 +48,7 @@ fn parse_seeds_a(line: String) raises -> DynamicVector[Mapping]:
         ))
     return seeds
 
+
 fn parse_seeds_b(line: String) raises -> DynamicVector[Mapping]:
     var parts = line.split(" ")
     var seeds = DynamicVector[Mapping] ()
@@ -61,15 +59,18 @@ fn parse_seeds_b(line: String) raises -> DynamicVector[Mapping]:
             length = atol(parts[i+1])
         ))
     return seeds
-    
+
+
 fn is_digit(c: String) -> Bool:
     return ord(c) >= ord('0') and ord(c) <= ord('9')
+
 
 fn min(a: Int, b: Int) -> Int:
     if a < b:
         return a
     else:
         return b
+
 
 let INTMAX:Int = 100000000000
 def recurse_mapping(start: Int, end: Int, level: Int, mappingChain: DynamicVector[DynamicVectorWrap], passthrough: Bool) -> Int:
@@ -82,6 +83,7 @@ def recurse_mapping(start: Int, end: Int, level: Int, mappingChain: DynamicVecto
             # we have 3 cases here 
             var before_val = INTMAX
             var after_val = INTMAX
+            
             if mapping.src > start:
                 before_val = recurse_mapping(start, mapping.src, level, mappingChain,True)
                 
@@ -104,7 +106,6 @@ def recurse_mapping(start: Int, end: Int, level: Int, mappingChain: DynamicVecto
         retMin = recurse_mapping(start, end, level+1, mappingChain,True)
     else:
         retMin = start
-            
 
     return retMin
 
@@ -141,8 +142,6 @@ fn load_file(file: String) raises :
     if len(newMapping) > 0:
         mappingChain.append(newMapping) 
 
-
-
     def min_loc(seeds:DynamicVector[Mapping]) -> Int:
         var minLoc: Int = 2000000000
 
@@ -162,5 +161,5 @@ fn load_file(file: String) raises :
     print("Done")
 
 fn main() raises:
-    load_file("/Users/pero/pgit/aoc2023/5/input.test.txt")
-    load_file("/Users/pero/pgit/aoc2023/5/input.txt")
+    load_file("input.test.txt")
+    load_file("input.txt")
